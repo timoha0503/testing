@@ -37,7 +37,7 @@ public class BookingApiTest {
 
     // Метод для получения токена
     private String getAuthToken(String user, String pass) {
-        if (user == inull || pass == null) {
+        if (user == null || pass == null) {
             throw new IllegalStateException("Username or Password environment variable is not set.");
         }
         String authPayload = String.format("""
