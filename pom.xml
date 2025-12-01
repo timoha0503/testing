@@ -51,15 +51,13 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.15.0</version> <!-- Или последняя стабильная версия -->
+            <version>4.27.0</version> <!-- Или последняя стабильная версия -->
         </dependency>
-
-        <!-- WebDriverManager для автоматического управления драйверами -->
+        <!-- WebDriverManager (автоматическая загрузка драйверов) -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.6.2</version> <!-- Или последняя стабильная версия -->
-            <scope>test</scope>
+            <version>5.9.2</version>
         </dependency>
     </dependencies>
 
