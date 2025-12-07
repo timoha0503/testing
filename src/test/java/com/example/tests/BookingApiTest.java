@@ -1,5 +1,6 @@
 package com.example.tests;
 
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.TestInstance;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
+@Epic("API Tests")
+@Feature("Booking Management")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Позволяет использовать @BeforeAll без static
 public class BookingApiTest {
 
@@ -91,6 +94,9 @@ public class BookingApiTest {
 
     // Тест 1: Создание бронирования (POST /booking)
     @Test
+    @Description("Создает новое бронирование с фиксированными данными и проверяет, что в ответе содержится bookingid.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Create Booking")
     public void testCreateBooking() {
         String bookingPayload = createBookingPayload(
                 this.testFirstname,
@@ -119,6 +125,9 @@ public class BookingApiTest {
     // Тест 2: Полное обновление бронирования (PUT /booking/{id})
     // Зависит от testCreateBooking
     @Test
+    @Description("Полностью обновляет данные существующего бронирования и проверяет измененные поля.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Update Booking")
     public void testUpdateBooking() {
         // Убедимся, что бронирование создано
         if (this.bookingId == null) {
@@ -159,6 +168,9 @@ public class BookingApiTest {
     // Тест 3: Частичное обновление бронирования (PATCH /booking/{id})
     // Зависит от testCreateBooking
     @Test
+    @Description("Частично обновляет имя и цену бронирования и проверяет, что только эти поля изменились.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Partially Update Booking")
     public void testPartialUpdateBooking() {
         // Убедимся, что бронирование создано
         if (this.bookingId == null) {

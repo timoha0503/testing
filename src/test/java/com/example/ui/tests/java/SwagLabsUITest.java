@@ -1,6 +1,7 @@
 package com.example.ui.tests.java;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("UI Tests")
+@Feature("Swag Labs Login and Cart")
 public class SwagLabsUITest {
 
     private WebDriver driver;
@@ -56,7 +59,9 @@ public class SwagLabsUITest {
      * Проверить, что отображается заголовок "Products".
      */
     @Test
-    @DisplayName("Успешный логин: проверка заголовка 'Products'")
+    @Description("Выполняет успешный вход в систему с корректными учетными данными и проверяет наличие заголовка 'Products'.")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Login")
     public void testSuccessfulLogin() {
         driver.get(LOGIN_URL);
 
@@ -84,7 +89,9 @@ public class SwagLabsUITest {
      * Проверить, что иконка корзины показывает "1", а кнопка у товара сменилась на "Remove".
      */
     @Test
-    @DisplayName("Добавление товара в корзину: проверка счетчика и изменения кнопки")
+    @Description("Добавляет первый товар в корзину и проверяет, что счетчик корзины увеличился и кнопка изменилась на 'Remove'.")
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Add to Cart")
     public void testAddItemToCart() {
         driver.get(LOGIN_URL);
 
